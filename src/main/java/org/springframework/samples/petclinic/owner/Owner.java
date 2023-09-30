@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.springframework.core.style.ToStringCreator;
 import org.springframework.samples.petclinic.model.Person;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 
 import jakarta.persistence.CascadeType;
@@ -63,6 +64,17 @@ public class Owner extends Person {
 	@JoinColumn(name = "owner_id")
 	@OrderBy("name")
 	private List<Pet> pets = new ArrayList<>();
+
+	@Column(name = "age")
+	private Integer age;
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
 	public String getAddress() {
 		return this.address;
